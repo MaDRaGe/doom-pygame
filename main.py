@@ -8,9 +8,11 @@ from drawing import Drawing
 
 pygame.init()
 sc = pygame.display.set_mode((WIDTH, HEIGHT))
+sc_map = pygame.Surface((WIDTH // MAP_SCALE, HEIGHT // MAP_SCALE))
+
 clock = pygame.time.Clock()
 player = Player()
-drawing = Drawing(sc)
+drawing = Drawing(sc, sc_map)
 
 while True:
     for event in pygame.event.get():
@@ -26,12 +28,8 @@ while True:
 
     drawing.fps(clock)
 
-    # pygame.draw.circle(sc, GREEN, player.pos, 12)
-    # pygame.draw.line(sc, GREEN, player.pos, (player.x + WIDTH *
-    #                                          math.cos(player.angle), player.y + WIDTH * math.sin(player.angle)))
+    drawing.map(player)
 
-    # for x, y in world_map:
-    #     pygame.draw.rect(sc, DARKGRAY, (x, y, TILE, TILE), 2)
-
+    
     pygame.display.flip()
     clock.tick()
