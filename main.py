@@ -22,7 +22,7 @@ while True:
     player.move()
     sc.fill(BLACK)
 
-    drawing.background()
+    drawing.background(player.angle)
 
     drawing.world(player.pos, player.angle)
 
@@ -30,6 +30,5 @@ while True:
 
     drawing.map(player)
 
-    
     pygame.display.flip()
     clock.tick()

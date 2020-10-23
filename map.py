@@ -2,21 +2,24 @@ from settings import *
 
 
 text_map = [
-    'wwwwwwwwww',
-    'w..w.....w',
-    'w.....w..w',
-    'w........w',
-    'w........w',
-    'w........w',
-    'w.....ww.w',
-    'wwwwwwwwww'
+    '1111111111',
+    '1..2.....1',
+    '1.....2..1',
+    '1........1',
+    '1.22.....1',
+    '1........1',
+    '1.22..22.1',
+    '1111111111'
 ]
 
-world_map = set()
+world_map = {}
 mini_map = set()
 for j, row in enumerate(text_map):
     print(j, row)
     for i, char in enumerate(row):
-        if char == 'w':
-            world_map.add((i * TILE, j * TILE))
+        if char != '.':
             mini_map.add((i * MAP_TILE, j * MAP_TILE))
+            if char == '1':
+                world_map[(i * TILE, j * TILE)] = '1'
+            if char == '2':
+                world_map[(i * TILE, j * TILE)] = '2'
