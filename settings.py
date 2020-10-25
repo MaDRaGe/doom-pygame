@@ -6,7 +6,7 @@ HEIGHT = 800
 HALF_WIDTH = WIDTH // 2
 HALF_HEIGHT = HEIGHT // 2
 FPS = 60
-TILE = 100
+TILE = 100  # Map rect size
 
 # ray casting
 NUM_RAYS = 300
@@ -18,13 +18,17 @@ DIST = NUM_RAYS / (2 * math.tan(HALF_FOV))
 PROJ_COEFF = 3 * DIST * TILE
 SCALE = WIDTH // NUM_RAYS
 
+# sprite
+DOUBLE_PI = 2 * math.pi
+CENTER_RAY = NUM_RAYS // 2 - 1
+
 # texture
 TEXTURE_WIDTH = 1200
 TEXTURE_HEIGHT = 1200
 TEXTURE_SCALE = TEXTURE_WIDTH // 100
 
 # player
-player_pos = (HALF_WIDTH, HALF_HEIGHT)
+player_pos = (HALF_WIDTH // 4, HALF_HEIGHT - 50)
 player_angle = 0
 player_speed = 2
 
@@ -39,6 +43,8 @@ PURPLE = (120, 0, 120)
 SKYBLUE = (0, 186, 255)
 YELLOW = (220, 220, 0)
 SANDY = (244, 164, 60)
+DARKBROWN = (97, 61, 25)
+DARKRANGE = (255, 140, 0)
 
 # minimap
 MAP_SCALE = 5
