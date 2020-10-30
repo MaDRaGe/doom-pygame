@@ -35,11 +35,13 @@ class SpriteObject:
         current_ray = CENTER_RAY + delta_rays
         distance_to_sprite *= math.cos(HALF_FOV - current_ray * DELTA_ANGLE)
 
-        if 0 <= current_ray < NUM_RAYS - 1 and distance_to_sprite < walls[current_ray][0]:
+        # Спрайт находится перед стеной
+        if 0 <= current_ray <= NUM_RAYS - 1 and distance_to_sprite < walls[current_ray][0]:
+
             proj_height = int(PROJ_COEFF / distance_to_sprite * self.scale)
             half_proj_height = proj_height // 2
             shift = half_proj_height * self.shift
-            sprite_pos = (current_ray * self.scale - half_proj_height,
+            sprite_pos = (current_ray * SCALE - half_proj_height,
                           HALF_HEIGHT - half_proj_height + shift)
             sprite = pygame.transform.scale(
                 self.object, (proj_height, proj_height))

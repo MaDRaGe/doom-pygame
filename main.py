@@ -29,7 +29,7 @@ while True:
     drawing.background(player.angle)
 
     #drawing.world(player.pos, player.angle)
-    walls = ray_casting(player_pos, player_angle, drawing.textures)
+    walls = ray_casting(player.pos, player.angle, drawing.textures)
     drawing.world(walls + [obj.object_locate(player, walls)
                            for obj in sprites.list_of_objects])
     drawing.fps(clock)
